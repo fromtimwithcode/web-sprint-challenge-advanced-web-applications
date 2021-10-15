@@ -1,7 +1,15 @@
+import axiosWithAuth from "../utils/axiosWithAuth";
 
-
-const articleService = ()=> {
-}
+const articleService = (state) => {
+  axiosWithAuth()
+    .get("http://localhost:5000/api/articles")
+    .then((res) => {
+      return state(res.data);
+    })
+    .catch((err) => {
+      console.error("Unable to retrieve articles.", err);
+    });
+};
 
 export default articleService;
 

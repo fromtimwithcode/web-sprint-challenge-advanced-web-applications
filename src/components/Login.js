@@ -27,7 +27,7 @@ const Login = () => {
         push("/view");
       })
       .catch((err) => {
-        console.error("Login failed.", error);
+        console.error("Login failed.", err);
         setErrors({ ...errors, errorMessage: "Incorrect login information." });
       });
   };
